@@ -87,7 +87,7 @@ class Logger {
     public function __invoke($request, $response, $next)
     {
         // Begin of time
-        $start = microtime();
+        $start = microtime(true);
         // URL accessed
         $path = $request->getUri()->getPath();
 
@@ -95,7 +95,7 @@ class Logger {
         $response = $next($request, $response);
 
         // End of time
-        $end = microtime();
+        $end = microtime(true);
         // Latency
         $latency = $end - $start;
         // Client IP address
